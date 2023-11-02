@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  application:
+    restart: always
+    container_name: hotel-booking
+    hostname: backend
+    build:
+      context: .
+    command:
+      python3 -m src
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/app
+    networks:
+      - backend
+
+
+networks:
+  backend:
+    name: hotel-booking-network
+    driver: bridge
