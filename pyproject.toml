@@ -2,13 +2,22 @@
 name = "hotel-bookings"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Alexander Seryakov seryakov78116@gmail.com"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.11"
+python = "^3.11"
+fastapi = "^0.104.1"
+uvicorn = "^0.24.0"
+httpx = "^0.25.1"
 
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.12.0"
+pytest = "^7.4.3"
+flake8 = "^6.1.0"
+black = "^23.10.1"
 
 [build-system]
 requires = ["poetry-core"]
