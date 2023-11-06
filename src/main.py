@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from booking_router import booking_router
+from src.booking_router import booking_router
 
 app = FastAPI(title="Online-booking")
 
