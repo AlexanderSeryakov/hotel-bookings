@@ -17,7 +17,7 @@ def test_list_hotels(test_client: TestClient) -> None:
     assert response.json() == {"Moscow": 5, "Mone": 5, "The World": 3}
 
 
-def test_add_hotel(test_client: TestClient) -> dict:
+def test_add_hotel(test_client: TestClient) -> None:
     new_hotel = {"title": "test_hotel", "stars": 4}
     response = test_client.post("booking/hotels", json=new_hotel)
 
