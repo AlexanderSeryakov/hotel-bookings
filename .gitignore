@@ -1,3 +1,4 @@
+db_data/
 .vscode/
 .idea/
 *pycache*
@@ -5,3 +6,4 @@
 .mypy_cache/
 .venv/
 .pyc
+.env

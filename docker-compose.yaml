@@ -1,23 +1,56 @@
 version: '3.9'
 
 services:
-  application:
+  backend:
     restart: always
     container_name: hotel-booking
     hostname: backend
+    env_file:
+      - ./.env
+    environment:
+      - DB_HOST
+      - DB_PORT
+      - DB_USER
+      - DB_PASS
+      - DB_NAME
     build:
       context: .
-    command:
-      python3 -m src
+    command: bash -c "cd src && python3 main.py"
     ports:
       - '8000:8000'
     volumes:
       - .:/app
     networks:
-      - backend
+      - hotel-booking
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    restart: always
+    image: postgres:15-alpine
+    container_name: hotel-booking-db
+    hostname: db
+    env_file:
+      - ./.env
+    environment:
+      - POSTGRES_PASSWORD
+      - POSTGRES_USER
+      - POSTGRES_DB
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ 'CMD-SHELL', 'pg_isready -U postgres' ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - hotel-booking
 
 
 networks:
-  backend:
+  hotel-booking:
     name: hotel-booking-network
     driver: bridge

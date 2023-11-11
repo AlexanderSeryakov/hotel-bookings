@@ -3,7 +3,7 @@ from typing import Annotated
 from fastapi import APIRouter, Query
 from pydantic import BaseModel
 
-from src.db import hotels
+from db import hotels
 
 booking_router = APIRouter()
 
