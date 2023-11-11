@@ -2,12 +2,10 @@ import uvicorn
 from fastapi import FastAPI
 
 from api.booking_router import booking_router
-from api.routers import new_router
 
 app = FastAPI(title="Online-booking")
 
 app.include_router(booking_router, prefix="/booking")
-app.include_router(new_router, prefix="/new")
 
 
 @app.get("/")
