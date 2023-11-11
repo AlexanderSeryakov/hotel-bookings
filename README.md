@@ -13,7 +13,7 @@
 
 ---
 
-### Before starting the project, don`t forget to create a .env file 
+### Before starting the project, don`t forget to create a .env file in project root
 
 > example .env file for local setup
 ```
@@ -21,6 +21,7 @@ POSTGRES_PASSWORD=postgres
 POSTGRES_USER=postgres
 POSTGRES_DB=postgres
 
+# DB_HOST should be equal name of database service in docker-compose file
 DB_HOST=db
 DB_PORT=5432
 DB_USER=postgres
