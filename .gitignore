@@ -1,6 +1,7 @@
 db_data/
 .vscode/
 .idea/
+db_data.sql
 *pycache*
 .pytest_cache/
 .mypy_cache/

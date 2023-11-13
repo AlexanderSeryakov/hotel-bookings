@@ -5,7 +5,14 @@ from os.path import abspath, dirname
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
-from src.infrastructure import DATABASE_URL, Base, Hotels
+from src.infrastructure import (
+    DATABASE_URL,
+    Base,
+    Hotels,
+    Users,
+    Rooms,
+    Bookings,
+)
 
 sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 

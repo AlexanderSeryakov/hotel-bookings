@@ -8,7 +8,7 @@ app = FastAPI(title="Online-booking")
 app.include_router(booking_router, prefix="/booking")
 
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 async def health_check() -> dict:
     return {"is_running": True}
 
